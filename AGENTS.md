@@ -1,5 +1,5 @@
 <!-- OPENSPEC:START -->
-# OpenSpec Instructions
+# AgentSpec Instructions
 
 These instructions are for AI assistants working in this project.
 

@@ -19,8 +19,8 @@ const require = createRequire(import.meta.url);
 const { version } = require('../../package.json');
 
 program
-  .name('openspec')
-  .description('AI-native system for spec-driven development')
+  .name('agentspec')
+  .description('Salesforce Agentforce Development Framework')
   .version(version);
 
 // Global options
@@ -45,7 +45,7 @@ program
     try {
       // Validate that the path is a valid directory
       const resolvedPath = path.resolve(targetPath);
-      
+
       try {
         const stats = await fs.stat(resolvedPath);
         if (!stats.isDirectory()) {
@@ -61,7 +61,7 @@ program
           throw new Error(`Cannot access path "${targetPath}": ${error.message}`);
         }
       }
-      
+
       const initCommand = new InitCommand({
         tools: options?.tools,
       });
@@ -239,7 +239,7 @@ program
   .option('-r, --requirement <id>', 'JSON only: Show specific requirement by ID (1-based)')
   // allow unknown options to pass-through to underlying command implementation
   .allowUnknownOption(true)
-  .action(async (itemName?: string, options?: { json?: boolean; type?: string; noInteractive?: boolean; [k: string]: any }) => {
+  .action(async (itemName?: string, options?: { json?: boolean; type?: string; noInteractive?: boolean;[k: string]: any }) => {
     try {
       const showCommand = new ShowCommand();
       await showCommand.execute(itemName, options ?? {});

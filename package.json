@@ -1,21 +1,23 @@
 {
-  "name": "@fission-ai/openspec",
+  "name": "@designthynk/agentspec",
   "version": "0.16.0",
-  "description": "AI-native system for spec-driven development",
+  "description": "Salesforce Agentforce Development Framework",
   "keywords": [
+    "agentspec",
     "openspec",
-    "specs",
+    "salesforce",
+    "agentforce",
     "cli",
     "ai",
     "development"
   ],
-  "homepage": "https://github.com/Fission-AI/OpenSpec",
+  "homepage": "https://github.com/Fission-AI/AgentSpec",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Fission-AI/OpenSpec"
+    "url": "https://github.com/Fission-AI/AgentSpec"
   },
   "license": "MIT",
-  "author": "OpenSpec Contributors",
+  "author": "AgentSpec Contributors",
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -27,7 +29,7 @@
     }
   },
   "bin": {
-    "openspec": "./bin/openspec.js"
+    "agentspec": "./bin/openspec.js"
   },
   "files": [
     "dist",
@@ -69,5 +71,6 @@
     "commander": "^14.0.0",
     "ora": "^8.2.0",
     "zod": "^4.0.17"
-  }
+  },
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
 }

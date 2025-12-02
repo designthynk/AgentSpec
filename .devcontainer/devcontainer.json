@@ -1,7 +1,6 @@
 {
   "name": "OpenSpec Development",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
-
   // Additional tools and features
   "features": {
     "ghcr.io/devcontainers/features/git:1": {
@@ -10,9 +9,11 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/salesforce-cli:1": {
+      "version": "latest"
     }
   },
-
   // Configure tool-specific properties
   "customizations": {
     "vscode": {
@@ -28,19 +29,15 @@
         "files.eol": "\n",
         "terminal.integrated.defaultProfile.linux": "bash"
       },
-
       // Add extensions you want installed when the container is created
       "extensions": [
         // TypeScript/JavaScript essentials
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-
         // Testing
         "vitest.explorer",
-
         // Git
         "eamodio.gitlens",
-
         // Utilities
         "streetsidesoftware.code-spell-checker",
         "usernamehw.errorlens",
@@ -48,21 +45,16 @@
       ]
     }
   },
-
   // Use 'forwardPorts' to make a list of ports inside the container available locally
   // "forwardPorts": [],
-
   // Use 'postCreateCommand' to run commands after the container is created
   "postCreateCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install",
-
   // Configure mounts to preserve SSH keys for git operations
   "mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly,type=bind,consistency=cached"
   ],
-
   // Set the default user to 'node' (non-root user)
   "remoteUser": "node",
-
   // Ensure git is properly configured
   "initializeCommand": "echo 'Initializing dev container...'"
 }

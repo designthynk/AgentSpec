@@ -1,16 +1,18 @@
-export const agentsTemplate = `# OpenSpec Instructions
+export const agentsTemplate = `# AgentSpec Developer Instructions
 
-Instructions for AI coding assistants using OpenSpec for spec-driven development.
+Instructions for AI coding assistants building Salesforce Agentforce solutions using AgentSpec.
 
 ## TL;DR Quick Checklist
 
-- Search existing work: \`openspec spec list --long\`, \`openspec list\` (use \`rg\` only for full-text search)
-- Decide scope: new capability vs modify existing capability
-- Pick a unique \`change-id\`: kebab-case, verb-led (\`add-\`, \`update-\`, \`remove-\`, \`refactor-\`)
-- Scaffold: \`proposal.md\`, \`tasks.md\`, \`design.md\` (only if needed), and delta specs per affected capability
-- Write deltas: use \`## ADDED|MODIFIED|REMOVED|RENAMED Requirements\`; include at least one \`#### Scenario:\` per requirement
-- Validate: \`openspec validate [change-id] --strict\` and fix issues
-- Request approval: Do not start implementation until proposal is approved
+- **Context**: Read \`openspec/project.md\` and \`openspec/specs/agentforce-lifecycle/spec.md\`.
+- **Org Check**: Verify connected org (\`sf org list\`) and permissions.
+- **Search**: Check existing specs and changes (\`openspec list\`).
+- **Scope**: Decide if this is a new Agent, Flow, LWC, or modification.
+- **Scaffold**: Create \`proposal.md\` and \`tasks.md\` in \`changes/<change-id>/\`.
+- **MCP First**: Use MCP tools (\`get_username\`, \`list_all_orgs\`) to verify state.
+- **Spec**: Write deltas in \`specs/\`.
+- **Validate**: \`openspec validate [change-id] --strict\`.
+- **Approve**: Get user approval before running \`sf\` commands that modify the org.
 
 ## Three-Stage Workflow
 
@@ -72,6 +74,20 @@ After deployment, create separate PR to:
 - [ ] Run \`openspec list\` to see active changes
 - [ ] Run \`openspec list --specs\` to see existing capabilities
 
+**Salesforce Context & Rules:**
+1. **MCP First, CLI Second**:
+   - Use MCP tools (from \`@salesforce/mcp\`) for insights, test results, and guidance.
+   - Use \`sf\` CLI for execution (deploy, retrieve, test run).
+2. **Always Use \`sf\`**: Never use \`sfdx\`.
+3. **Metadata Discipline**:
+   - Ensure all changes (Objects, Classes, Agents) are tracked as XML metadata.
+4. **Security**:
+   - Define permission sets for every new feature.
+   - Follow \`specs/salesforce-standards/spec.md\` for Apex/LWC security.
+5. **Lifecycle**:
+   - Deactivate agent (\`sf agent deactivate\`) before making changes.
+   - Use \`sf agent preview\` for interactive verification.
+
 **Before Creating Specs:**
 - Always check if capability already exists
 - Prefer modifying existing specs over creating duplicates
@@ -127,8 +143,8 @@ openspec/
 ├── project.md              # Project conventions
 ├── specs/                  # Current truth - what IS built
 │   └── [capability]/       # Single focused capability
-│       ├── spec.md         # Requirements and scenarios
-│       └── design.md       # Technical patterns
+│   │   ├── spec.md         # Requirements and scenarios
+│   │   └── design.md       # Technical patterns
 ├── changes/                # Proposals - what SHOULD change
 │   ├── [change-name]/
 │   │   ├── proposal.md     # Why, what, impact

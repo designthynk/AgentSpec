@@ -150,3 +150,14 @@ CLAUDE.md
 
 # Pnpm
 .pnpm-store/
+
+# Salesforce Source Materials (not for public distribution)
+AGENTFORCE_VIBES_BACKEND_CONFIG.md
+agentforcebuilder.md
+
+# Salesforce DX Projects (if you add example projects)
+**/force-app/
+**/.sfdx/
+**/.sf/
+**/sfdx-project.json
+
